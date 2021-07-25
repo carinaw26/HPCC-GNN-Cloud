@@ -1,0 +1,4 @@
+{
+    "ecl.eclccPath": "/opt/HPCCSystems/8.0.18/clienttools/bin",
+    "ecl.includeFolders":["."]
+}
