@@ -1,0 +1,85 @@
+# The settings you mush change for your environment
+#______________________________________________________
+TAGS=" \
+  \"
+  business_unit=research-and-development \
+  cost_center=st660 \
+  environment=development \
+  location=$location \
+  market=us \
+  product_group=dev \
+  production_name=hpccsystems \
+  project=kube-scheduler-test \
+  resource_group_type=app \
+  sre_team=hpcc_platform \
+  subscription_id=module.subscription.output.subscription_id \
+  subcription_type=nonprod \""
+
+RESOURCE_GROUP="spot-gnn-carina"
+REGION="canadacentral" # AKS_NAME depends on this
+#REGION="canadacentral" # AKS_NAME depends on this
+#REGION="canadacentral" # AKS_NAME depends on this
+AKS_NAME="aks-${RESOURCE_GROUP}-${REGION}"
+
+# The settings you may need to change
+#______________________________________________________
+# az aks get-versions --location eastus
+#KUBERNETES_VERSION="1.19.9"
+SUBSCRIPTION="us-hpccplatform-dev"
+ZONE=1
+INIT_NP_NAME="initmaster"
+
+# AKS create options include master nodes paramenters
+# Default nodepool is always in master mode
+# ZONES format: zone numbers seperated by space.
+# such as 1 or 1 2 3
+#-----------------------------------------------------
+AKS_CREATE_OPTIONS=" \
+   --generate-ssh-keys \
+   --resource-group \${RESOURCE_GROUP} \
+   --name \${AKS_NAME} \
+   --enable-managed-identity \
+   --zones 1 2 3 \
+   --node-count 1 \
+   --nodepool-name \${INIT_NP_NAME} \
+   --tags \${TAGS} \
+"
+
+# Node Pools
+#-----------------------------------------------------
+#https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/
+
+declare -a node_pools
+node_pools=(
+  "--name master \
+   --resource-group \${RESOURCE_GROUP} \
+   --cluster-name \${AKS_NAME} \
+   --labels vm=ds4v2 \
+   --os-type Linux \
+   --zones 1 2 3 \
+   --node-vm-size Standard_DS4_v2 \
+   --node-count 1 \
+   --min-count 1 \
+   --max-count 4 \
+   --mode system \
+   --enable-cluster-autoscaler \
+   --node-taints CriticalAddonsOnly=true:NoSchedule \
+  "
+
+  "--name spot \
+   --resource-group \${RESOURCE_GROUP} \
+   --cluster-name \${AKS_NAME} \
+   --labels vm=D16v4 hpcc=true \
+   --os-type Linux \
+   --zones 1 2 3 \
+   --node-vm-size Standard_D16_v4 \
+   --node-count 4 \
+   --min-count 4 \
+   --max-count 10 \
+   --mode user \
+   --priority Spot \
+   --eviction-policy Delete \
+   --spot-max-price -1 \
+   --enable-cluster-autoscaler \
+  "
+)
