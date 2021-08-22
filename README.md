@@ -1,8 +1,22 @@
 # HPCC-GNN-Cloud
+
+## Contents
+
+- Spray: bin/README.md
+- Image Processing: bin/group-image.sh
+- Create: AKS Azure/AKS
+- Setup Storage
+- Deploy HPCC
+- Prepare GNN: GNN/
+- Prepare VS Code: /vscode
+- Train GNN model /GNN
+
+
 ```code
 Processing student image data using Kubernetes on HPCC Cloud Native Platform
 Training 4,000+ student images on HPCC GNN and TensorFlow Jupyter Notebook models 
 Classifies images as "AHS" or "Not AHS"
+
 ```
 ## Kubernetes Setup
 Create AKS cluster on Azure
