@@ -1,11 +1,14 @@
 # The settings you mush change for your environment
 #______________________________________________________
+REGION="canadacentral" # AKS_NAME depends on this
+#REGION="canadacentral" # AKS_NAME depends on this
+#
 TAGS=" \
   \"
   business_unit=research-and-development \
   cost_center=st660 \
   environment=development \
-  location=$location \
+  location=$REGION \
   market=us \
   product_group=dev \
   production_name=hpccsystems \
@@ -15,17 +18,14 @@ TAGS=" \
   subscription_id=module.subscription.output.subscription_id \
   subcription_type=nonprod \""
 
-RESOURCE_GROUP="spot-gnn-carina"
-REGION="canadacentral" # AKS_NAME depends on this
-#REGION="canadacentral" # AKS_NAME depends on this
-#REGION="canadacentral" # AKS_NAME depends on this
+RESOURCE_GROUP=""
 AKS_NAME="aks-${RESOURCE_GROUP}-${REGION}"
 
 # The settings you may need to change
 #______________________________________________________
 # az aks get-versions --location eastus
 #KUBERNETES_VERSION="1.19.9"
-SUBSCRIPTION="us-hpccplatform-dev"
+SUBSCRIPTION=""
 ZONE=1
 INIT_NP_NAME="initmaster"
 

@@ -6,12 +6,8 @@ EXPORT AHS_File_Image := MODULE
   UNSIGNED8  RecPos{virtual(fileposition)};
   DATA   image;   
  END;
- //EXPORT imageData := DATASET('~imagedb::bmf',imageRecord,FLAT);
- //EXPORT imageData := DATASET('~ahs80::cw',imageRecord,FLAT);
  EXPORT trainImageData := DATASET('~trainahs256::cw',imageRecord,FLAT);
  EXPORT testImageData := DATASET('~testahs6::cw',imageRecord,FLAT);
- //EXPORT imageData := DATASET('~plane::data::landingzone::data::*.bmp',imageRecord,FLAT);
- //EXPORT imageData := DATASET('~file::localhost::var::lib::^H^P^C^C^Systems::hpcc-data::landingzone::data::*.bmp',imageRecord,FLAT);
  //Add RecID and Dependent Data
  EXPORT imageRecordPlus := RECORD
    UNSIGNED1 RecID; 

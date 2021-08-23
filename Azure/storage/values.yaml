@@ -7,7 +7,7 @@ common:
 planes:
 - name: dali
   subPath: dalistorage
-  size: 1Gi
+  size: 3Gi
   category: dali
   #sku: "Standard_LRS"
   shareName: dalishare
@@ -20,7 +20,7 @@ planes:
   shareName: dllsshare
 - name: sasha
   subPath: sasha
-  size: 1Gi
+  size: 2Gi
   rwmany: true
   category: sasha
   #sku: "Standard_LRS"
@@ -34,7 +34,7 @@ planes:
   shareName: datashare
 - name: mydropzone
   subPath: dropzone
-  size: 1Gi
+  size: 2Gi
   rwmany: true
   category: lz
   #sku: "Standard_LRS"

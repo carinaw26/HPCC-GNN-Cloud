@@ -14,11 +14,11 @@ EXPORT File_Image := MODULE
    imageRecord;
  END;
  
-  EXPORT imageDataPlus := PROJECT(imageData, 
-	                                 TRANSFORM(imageRecordPlus,
-	                                           SELF.RecID := COUNTER,
-																									           SELF.YType := IF(STD.STR.Find(LEFT.filename,'dog')<> 0,1,0),;
-																															   SELF.Image := LEFT.IMAGE[51..],
-																																  SELF := LEFT)); 
-																																		 
+ EXPORT imageDataPlus := PROJECT(imageData, 
+   TRANSFORM(imageRecordPlus,
+             SELF.RecID := COUNTER,
+             SELF.YType := IF(STD.STR.Find(LEFT.filename,'dog')<> 0,1,0),;
+             SELF.Image := LEFT.IMAGE[51..],
+             SELF := LEFT)); 
+
 END;

@@ -11,8 +11,8 @@ IMPORT Std.System.Thorlib;
 
 imagerecord := $.File_Image.imageRecordPlus;
 plusrecs    := SORT($.File_Image.ImageDataPlus,recid);
-mytraindata := PROJECT(plusrecs[1..5]+plusrecs[9..12],imagerecord):PERSIST('~GNNTutorial::BMF::Train');
-mytestdata  := PROJECT(plusrecs[6..7]+plusrecs[13..14],imagerecord):PERSIST('~GNNTutorial::BMF::Test');   
+mytraindata := PROJECT(plusrecs[1..5]+plusrecs[9..12],imagerecord):PERSIST('~GNNTutorial::CW::Train');
+mytestdata  := PROJECT(plusrecs[6..7]+plusrecs[13..14],imagerecord):PERSIST('~GNNTutorial::CW::Test');   
 Tensdata    := Tensor.R4.TensData;
 
 //create a Tensor of shape [0,60,90,3]: height,width,channels
