@@ -24,7 +24,7 @@ Classifies images as "AHS" or "Not AHS"
 11. Flowcharts; ./Flowcharts
 
 
-## Prequisities)
+## Prequisities
 * [Helm](https://helm.sh/docs/intro/install/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/). You should already have this if you installed Docker Desktop
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
