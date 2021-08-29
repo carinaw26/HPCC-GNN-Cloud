@@ -32,13 +32,13 @@ kubectl cp <source dir or files> <dfuserver pod name>:/var/lib/HPCCSystems/mydro
 Spray with dfuplus
 ```code
 kubectl exec -t <pod name> -- /opt/HPCCSystems/bin/dfuplus action=spray nolocal=true srcip=127.0.0.1 srcfile=<source files name or pattern> dstname=<logic file name> dstcluster=data overwrite=1 prefix=FILENAME,FILESIZE nosplit=1 server=<eclwatch cluster ip>:8010
-```
+
 Where
 - <pod name> is dfuserver pod name
 - <source files or pattern> /var/lib/HPCCSystems/mydropzone/two_folders/ahs/*.bmp,/var/lib/HPCCSystems/mydropzone/two_folders/notahs/*.bmp
 - <logic file name>: logic file name. For example "~ahs4839:cw"
 - <eclwatch cluster ip>: internal eclwatch ip. It is OK if giving external eclwatch ip
-
+```
 There is a helper script bin/spray-dfu.sh
 ```code
 ./spray-dfu.sh -i 10.0.183.76 -d "~ahs4839::cw" -n dfuserver-5b7b876f99-prlcw -s /var/lib/HPCCSystems/mydropzone/two_folders/ahs/*.bmp,/var/lib/HPCCSystems/mydropzone/two_folders/notahs/*.bmp
