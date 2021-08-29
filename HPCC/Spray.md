@@ -35,7 +35,7 @@ kubectl exec -t <pod name> -- /opt/HPCCSystems/bin/dfuplus action=spray nolocal=
 
 Where
 - <pod name> is dfuserver pod name
-- <source files or pattern> /var/lib/HPCCSystems/mydropzone/two_folders/ahs/*.bmp,/var/lib/HPCCSystems/mydropzone/two_folders/notahs/*.bmp
+- <source files or pattern> files or pattern under /var/lib/HPCCSystems/mydropzone. For example,  /var/lib/HPCCSystems/mydropzone/two_folders/ahs/*.bmp,/var/lib/HPCCSystems/mydropzone/two_folders/notahs/*.bmp
 - <logic file name>: logic file name. For example "~ahs4839:cw"
 - <eclwatch cluster ip>: internal eclwatch ip. It is OK if giving external eclwatch ip
 ```
