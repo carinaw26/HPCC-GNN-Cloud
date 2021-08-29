@@ -166,10 +166,18 @@ OUTPUT(wts, NAMED('InitWeights'), ALL);
 
 // Fit trains the models, given training X and Y data.  BatchSize is not the Keras batchSize,
 // but defines how many records are processed on each node before synchronizing the weights
-
-//mod2 := GNNI.Fit(mod, tensTrain, Ytrain, batchSize := 1, numEpochs := 5);
-mod2 := GNNI.Fit(mod, tensTrain, Ytrain, batchSize := 32, numEpochs := 100);
-//mod2 := GNNI.Fit(mod, tensTrain, Ytrain, batchSize := 128, numEpochs := 5);
+/*
+ UNSIGNED4 Fit(UNSIGNED4 model,
+                      DATASET(t_Tensor) x,
+                      DATASET(t_Tensor) y,
+                      UNSIGNED4 batchSize = 512,
+                      UNSIGNED4 numEpochs = 1,
+                      REAL trainToLoss = 0,
+                      REAL learningRateReduction = 1.0,
+                      REAL batchSizeReduction = 1.0,
+                      UNSIGNED4 localBatchSize = 32)
+*/
+mod2 := GNNI.Fit(mod, tensTrain, Ytrain, batchSize := 32, numEpochs := 5);
 OUTPUT(mod2, NAMED('mod2'));
 
 // GetLoss returns the average loss for the final training epoch
