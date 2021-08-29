@@ -13,7 +13,7 @@ https://marketplace.visualstudio.com/items?itemName=hpcc-systems.ecl
      "path": "model"
   },
   {
-     "path": "C:\\Users\\wangxi01\\AppData\\Roaming\\HPCCSystems\\bundles"
+     "path": "/Users/carinawang/.HPCCSystems/bundles"
   }
   ]
 }
