@@ -83,7 +83,7 @@ class PredictAHS(object):
   def predictImage(self):
     result = self.model.predict(self.image[np.newaxis, ...])
     predicted_class = np.argmax(result[0], axis=-1)
-    print("Is this a AH student? " + self.category[predicted_class])
+    print("Is this an AH student? " + self.category[predicted_class])
      
   def predict(self):
     self.loadModel()
